@@ -25,14 +25,14 @@ public class Main {
         System.out.println("First Page");
         while (true) {
             System.out.println();
-            System.out.println("1: Signup Customer ");
-            System.out.println("2: Login Customer ");
+            System.out.println("1: Login Customer ");
+            System.out.println("2: Signup Customer ");
             System.out.println("3: Exit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             System.out.println();
             switch (choice) {
-                case 1 -> {
+                case 2 -> {
                     System.out.print("Enter First Name: ");
                     String first_name = sc.next();
                     System.out.print("Enter Last Name: ");
@@ -57,7 +57,7 @@ public class Main {
                     System.out.println();
                     secondPage();
                 }
-                case 2 -> {
+                case 1 -> {
                     System.out.print("Enter Username: ");
                     String username = sc.next();
                     System.out.print("Enter Password: ");
@@ -104,9 +104,9 @@ public class Main {
                     }
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
-                    finance.insertTodayExpense(expense, categoryChoice-1);
+                    finance.insertTodayExpense(expense, categoryChoice - 1);
                     System.out.println();
-                    System.out.println("Today's Expense added successfully in " + categories.get(categoryChoice-1));
+                    System.out.println("Today's Expense added successfully in " + categories.get(categoryChoice - 1));
                     System.out.println();
                     continue;
                 }
