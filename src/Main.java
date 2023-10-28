@@ -125,9 +125,9 @@ public class Main {
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
                     double totalExpense;
-                    totalExpense = finance.viewExpenseByCategory(todayDate, categoryChoice);
+                    totalExpense = finance.viewExpenseByCategory(todayDate, categoryChoice - 1);
                     System.out.println();
-                    System.out.println("Today's Total Expense in " + categories.get(categoryChoice) + " is " + totalExpense + "₹");
+                    System.out.println("Today's Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
                     System.out.println();
                     continue;
                 }
@@ -150,9 +150,9 @@ public class Main {
                     System.out.print("Enter Date: ");
                     String viewDate = sc.next();
                     double totalExpense;
-                    totalExpense = finance.viewExpenseByCategory(viewDate, categoryChoice);
+                    totalExpense = finance.viewExpenseByCategory(viewDate, categoryChoice - 1);
                     System.out.println();
-                    System.out.println(viewDate + " Total Expense in " + categories.get(categoryChoice) + " is " + totalExpense + "₹");
+                    System.out.println(viewDate + " Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
                     System.out.println();
                     continue;
                 }
@@ -163,9 +163,9 @@ public class Main {
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
                     double totalExpense;
-                    totalExpense = finance.viewTotalExpenseInCategory(categoryChoice);
+                    totalExpense = finance.viewTotalExpenseInCategory(categoryChoice - 1);
                     System.out.println();
-                    System.out.println("Total Expense in " + categories.get(categoryChoice) + " is " + totalExpense + "₹");
+                    System.out.println("Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
                     System.out.println();
                     continue;
                 }
