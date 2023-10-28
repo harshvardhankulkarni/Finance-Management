@@ -104,9 +104,9 @@ public class Main {
                     }
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
-                    finance.insertTodayExpense(expense, categoryChoice);
+                    finance.insertTodayExpense(expense, categoryChoice-1);
                     System.out.println();
-                    System.out.println("Today's Expense added successfully in " + categories.get(categoryChoice));
+                    System.out.println("Today's Expense added successfully in " + categories.get(categoryChoice-1));
                     System.out.println();
                     continue;
                 }
