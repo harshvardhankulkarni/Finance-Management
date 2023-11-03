@@ -17,7 +17,7 @@ public class Category extends Database {
             boolean dataExist = true;
             Statement statement2 = getStatement();
             ResultSet resultSet = statement2.executeQuery("SELECT \"category\" FROM expense_types");
-            if (resultSet.getInt(1) == 0) {
+            if (resultSet.getString(1).isEmpty()) {
                 dataExist = false;
             }
             statement2.close();
