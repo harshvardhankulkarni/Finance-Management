@@ -18,7 +18,21 @@ public class Main {
     public static void main(String[] args) {
         category = new Category();
         currentUser = new User();
+        frontPage();
+        sc.nextLine();
+        clearScreen();
         firstPage();
+    }
+
+    public static void frontPage(){
+        System.out.println();
+        System.out.println("\t\t\t\t\t  BHARATI VIDYAPEETH DEENED TO BE UNIVERSITY'S");
+        System.out.println("\t\t\t\t\tYASEMANTRAO MORITE INTISUTUDE OF MANAGEMENT KARAD.");
+        System.out.println("\t\t\t\t\t               PROJECT BY");
+        System.out.println("\t\t\t\t\t                 Names");
+        System.out.println("\t\t\t\t\t             <First Name>");
+        System.out.println("\t\t\t\t\t             <Second Name>");
+        System.out.println("\t\t\t\t\t             <Third Name>");
     }
 
     public static void firstPage() {
