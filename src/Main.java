@@ -22,7 +22,6 @@ public class Main {
     }
 
     public static void firstPage() {
-        System.out.println("First Page");
         while (true) {
             System.out.println();
             System.out.println("1: Login Customer ");
@@ -52,9 +51,8 @@ public class Main {
                         continue;
                     }
                     finance = new Finance(currentUser);
-                    System.out.println();
+                    clearScreen();
                     System.out.println("Signup Successfully!!");
-                    System.out.println();
                     secondPage();
                 }
                 case 1 -> {
@@ -69,9 +67,8 @@ public class Main {
                         continue;
                     }
                     finance = new Finance(currentUser);
-                    System.out.println();
+                    clearScreen();
                     System.out.println("Login Successfully!!");
-                    System.out.println();
                     secondPage();
                 }
                 default -> System.out.println("Thank You!!");
@@ -81,7 +78,6 @@ public class Main {
     }
 
     public static void secondPage() {
-        System.out.println("Second Page");
         ArrayList<String> categories = category.getCategories();
         while (true) {
             System.out.println();
@@ -105,17 +101,15 @@ public class Main {
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
                     finance.insertTodayExpense(expense, categoryChoice - 1);
-                    System.out.println();
+                    clearScreen();
                     System.out.println("Today's Expense added successfully in " + categories.get(categoryChoice - 1));
-                    System.out.println();
                     continue;
                 }
                 case 2 -> {
                     double totalExpense;
                     totalExpense = finance.viewExpense(todayDate);
-                    System.out.println();
+                    clearScreen();
                     System.out.println("Today's Total Expense is " + totalExpense + "₹");
-                    System.out.println();
                     continue;
                 }
                 case 3 -> {
@@ -126,9 +120,8 @@ public class Main {
                     int categoryChoice = sc.nextInt();
                     double totalExpense;
                     totalExpense = finance.viewExpenseByCategory(todayDate, categoryChoice - 1);
-                    System.out.println();
+                    clearScreen();
                     System.out.println("Today's Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
-                    System.out.println();
                     continue;
                 }
                 case 4 -> {
@@ -136,9 +129,8 @@ public class Main {
                     String viewDate = sc.next();
                     double totalExpense;
                     totalExpense = finance.viewExpense(viewDate);
-                    System.out.println();
+                    clearScreen();
                     System.out.println(viewDate + " Total Expense is " + totalExpense + "₹");
-                    System.out.println();
                     continue;
                 }
                 case 5 -> {
@@ -151,9 +143,8 @@ public class Main {
                     String viewDate = sc.next();
                     double totalExpense;
                     totalExpense = finance.viewExpenseByCategory(viewDate, categoryChoice - 1);
-                    System.out.println();
+                    clearScreen();
                     System.out.println(viewDate + " Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
-                    System.out.println();
                     continue;
                 }
                 case 6 -> {
@@ -164,18 +155,23 @@ public class Main {
                     int categoryChoice = sc.nextInt();
                     double totalExpense;
                     totalExpense = finance.viewTotalExpenseInCategory(categoryChoice - 1);
-                    System.out.println();
+                    clearScreen();
                     System.out.println("Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
-                    System.out.println();
                     continue;
                 }
                 default -> {
                     currentUser.logout();
+                    clearScreen();
                     System.out.println("User Logout!");
                     firstPage();
                 }
             }
             break;
         }
+    }
+
+    private static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
