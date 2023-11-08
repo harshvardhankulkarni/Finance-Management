@@ -171,7 +171,7 @@ public class Main {
     }
 
     public static void centerString(String text) {
-        int consoleWidth = 150; // Change this to the width of your console
+        int consoleWidth = 154; // Change this to the width of your console
 
         int padding = (consoleWidth - text.length()) / 2;
 
