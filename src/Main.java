@@ -24,9 +24,9 @@ public class Main {
 
     public static void firstPage() {
         while (true) {
-            System.out.println("1: Login Customer ");
-            System.out.println("2: Signup Customer ");
-            System.out.println("3: Exit");
+            centerString("1: Login Customer ");
+            centerString("2: Signup Customer ");
+            centerString("3: Exit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             System.out.println();
@@ -47,12 +47,12 @@ public class Main {
                     try {
                         currentUser.signup(first_name, last_name, age, phone_number, username, password);
                     } catch (SQLException e) {
-                        System.out.println("Something went Wrong Try again!");
+                        centerString("Something went Wrong Try again!");
                         continue;
                     }
                     finance = new Finance(currentUser);
                     clearScreen();
-                    System.out.println("Signup Successfully!!");
+                    centerString("Signup Successfully!!");
                     secondPage();
                 }
                 case 1 -> {
@@ -63,15 +63,15 @@ public class Main {
                     try {
                         currentUser.login(username, password);
                     } catch (SQLException e) {
-                        System.out.println("Something went Wrong Try again!");
+                        centerString("Something went Wrong Try again!");
                         continue;
                     }
                     finance = new Finance(currentUser);
                     clearScreen();
-                    System.out.println("Login Successfully!!");
+                    centerString("Login Successfully!!");
                     secondPage();
                 }
-                default -> System.out.println("Thank You!!");
+                default -> centerString("Thank You!!");
             }
             break;
         }
@@ -81,13 +81,13 @@ public class Main {
         ArrayList<String> categories = category.getCategories();
         while (true) {
             System.out.println();
-            System.out.println("1: Insert Today's Expense");
-            System.out.println("2: View Today's Total Expense");
-            System.out.println("3: View Today's Expense by category");
-            System.out.println("4: View Total Expense by date");
-            System.out.println("5: View Total Expense by date and category");
-            System.out.println("6: View Total Expense by category");
-            System.out.println("7: Logout");
+            centerString("1: Insert Today's Expense");
+            centerString("2: View Today's Total Expense");
+            centerString("3: View Today's Expense by category");
+            centerString("4: View Total Expense by date");
+            centerString("5: View Total Expense by date and category");
+            centerString("6: View Total Expense by category");
+            centerString("7: Logout");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             System.out.println();
@@ -96,32 +96,32 @@ public class Main {
                     System.out.print("Enter Today's Expense: ");
                     double expense = sc.nextDouble();
                     for (int i = 0; i < categories.size(); i++) {
-                        System.out.println((i + 1) + ": " + categories.get(i));
+                        centerString((i + 1) + ": " + categories.get(i));
                     }
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
                     finance.insertTodayExpense(expense, categoryChoice - 1);
                     clearScreen();
-                    System.out.println("Today's Expense added successfully in " + categories.get(categoryChoice - 1));
+                    centerString("Today's Expense added successfully in " + categories.get(categoryChoice - 1));
                     continue;
                 }
                 case 2 -> {
                     double totalExpense;
                     totalExpense = finance.viewExpense(todayDate);
                     clearScreen();
-                    System.out.println("Today's Total Expense is " + totalExpense + "₹");
+                    centerString("Today's Total Expense is " + totalExpense + "₹");
                     continue;
                 }
                 case 3 -> {
                     for (int i = 0; i < categories.size(); i++) {
-                        System.out.println((i + 1) + ": " + categories.get(i));
+                        centerString((i + 1) + ": " + categories.get(i));
                     }
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
                     double totalExpense;
                     totalExpense = finance.viewExpenseByCategory(todayDate, categoryChoice - 1);
                     clearScreen();
-                    System.out.println("Today's Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
+                    centerString("Today's Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
                     continue;
                 }
                 case 4 -> {
@@ -130,12 +130,12 @@ public class Main {
                     double totalExpense;
                     totalExpense = finance.viewExpense(viewDate);
                     clearScreen();
-                    System.out.println(viewDate + " Total Expense is " + totalExpense + "₹");
+                    centerString(viewDate + " Total Expense is " + totalExpense + "₹");
                     continue;
                 }
                 case 5 -> {
                     for (int i = 0; i < categories.size(); i++) {
-                        System.out.println((i + 1) + ": " + categories.get(i));
+                        centerString((i + 1) + ": " + categories.get(i));
                     }
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
@@ -144,25 +144,25 @@ public class Main {
                     double totalExpense;
                     totalExpense = finance.viewExpenseByCategory(viewDate, categoryChoice - 1);
                     clearScreen();
-                    System.out.println(viewDate + " Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
+                    centerString(viewDate + " Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
                     continue;
                 }
                 case 6 -> {
                     for (int i = 0; i < categories.size(); i++) {
-                        System.out.println((i + 1) + ": " + categories.get(i));
+                        centerString((i + 1) + ": " + categories.get(i));
                     }
                     System.out.print("In which category you want add expense: ");
                     int categoryChoice = sc.nextInt();
                     double totalExpense;
                     totalExpense = finance.viewTotalExpenseInCategory(categoryChoice - 1);
                     clearScreen();
-                    System.out.println("Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
+                    centerString("Total Expense in " + categories.get(categoryChoice - 1) + " is " + totalExpense + "₹");
                     continue;
                 }
                 default -> {
                     currentUser.logout();
                     clearScreen();
-                    System.out.println("User Logout!");
+                    centerString("User Logout!");
                     firstPage();
                 }
             }
@@ -170,9 +170,19 @@ public class Main {
         }
     }
 
+    public static void centerString(String text) {
+        int consoleWidth = 150; // Change this to the width of your console
+
+        int padding = (consoleWidth - text.length()) / 2;
+
+        String centeredText = " ".repeat(padding) + text;
+
+        System.out.println(centeredText);
+    }
+
     private static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
-        System.out.println("Personal Finance Manager\n");
+        centerString("Personal Finance Manager\n");
     }
 }
