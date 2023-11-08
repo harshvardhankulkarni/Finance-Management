@@ -18,26 +18,12 @@ public class Main {
     public static void main(String[] args) {
         category = new Category();
         currentUser = new User();
-        frontPage();
-        sc.nextLine();
         clearScreen();
         firstPage();
     }
 
-    public static void frontPage(){
-        System.out.println();
-        System.out.println("\t\t\t\t\t  BHARATI VIDYAPEETH DEENED TO BE UNIVERSITY'S");
-        System.out.println("\t\t\t\t\tYASEMANTRAO MORITE INTISUTUDE OF MANAGEMENT KARAD.");
-        System.out.println("\t\t\t\t\t               PROJECT BY");
-        System.out.println("\t\t\t\t\t                 Names");
-        System.out.println("\t\t\t\t\t             <First Name>");
-        System.out.println("\t\t\t\t\t             <Second Name>");
-        System.out.println("\t\t\t\t\t             <Third Name>");
-    }
-
     public static void firstPage() {
         while (true) {
-            System.out.println();
             System.out.println("1: Login Customer ");
             System.out.println("2: Signup Customer ");
             System.out.println("3: Exit");
@@ -187,5 +173,6 @@ public class Main {
     private static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+        System.out.println("Personal Finance Manager\n");
     }
 }
